@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class ApiController extends Controller
 {
     public function news(){
-        $response = null;
+        $palavras = null;
             try{
-                $response = Http::get('https://dicionario.empregofacilitado.com/api/textos')->json();
+                $palavras = Http::get('https://dicionario.empregofacilitado.com/api/textos')->json();
             }catch(\Exception $ex){
                 return $ex->getMessage();
             }
-        return view('news', compact('response'));
+        return view('news', compact('palavras'));
     }
 
     public function videos(){
