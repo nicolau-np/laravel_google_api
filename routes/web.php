@@ -19,4 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('news', [ApiController::class, 'news']);
-Route::get('videos', [ApiController::class, 'videos']);
+
+Route::prefix('videos')->group(function(){
+    Route::get('/{id}', [ApiController::class, 'show']);
+    Route::get('/', [ApiController::class, 'index']);
+});
+
