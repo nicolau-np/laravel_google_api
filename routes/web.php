@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('news', [ApiController::class, 'news']);
+Route::prefix('news')->group(function(){
+    Route::get('/', [NewsController::class, 'index']);
+    Route::get('/{id}',[NewsController::class, 'show']);
+});
+
 
 Route::prefix('videos')->group(function(){
     Route::get('/{id}', [ApiController::class, 'show']);
