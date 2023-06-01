@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     public function index(){
-        $query = "isabel dos santos";
+        $query = "Angola";
         try{
             $news = Http::get('https://newsapi.org/v2/everything?q='.$query.'&language=pt&pageSize=10&apiKey='.env('GOOGLE_NEWS_API_KEY').'')->json();
+
         }catch(\Exception $ex){
             return $ex->getMessage();
         }
