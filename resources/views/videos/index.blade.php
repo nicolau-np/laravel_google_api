@@ -8,7 +8,9 @@
                     <div class="card">
                         <div class="card-header">{{ $video['snippet']['title'] }}</div>
                         <div class="card-body">
-                            <img src="{{ $video['snippet']['thumbnails']['high']['url'] }}" alt="" style="width: 100%;" srcset=""/>
+                            <a href="/videos/{{ $video['id']['videoId'] ?? null }}">
+                                <img src="{{ $video['snippet']['thumbnails']['high']['url'] }}" alt="" style="width: 100%;" srcset=""/>
+                            </a>
                             <p>
                                 {{ $video['snippet']['description'] }}
                             </p>
